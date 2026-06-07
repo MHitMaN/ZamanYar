@@ -1,0 +1,13 @@
+{
+  "name": "zamanyar",
+  "version": "1.0.0",
+  "description": "Smart browser extension for localized calendars, dates, times, numbers, fonts and per-site controls",
+  "scripts": {
+    "build": "web-ext build",
+    "lint": "web-ext lint",
+    "check": "node --check src/background/background.js && node --check src/content/jalaali.js && node --check src/content/content.js && node --check src/options/options.js && node --check src/popup/popup.js && node --check src/shared/i18n.js && node --check src/shared/system-fonts.js && node --check docs/demo.js"
+  },
+  "devDependencies": {
+    "web-ext": "^8.3.0"
+  }
+}

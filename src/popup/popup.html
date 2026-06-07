@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZamanYar</title>
+  <link rel="stylesheet" href="../../assets/styles/popup.css">
+</head>
+<body>
+  <main class="popup">
+    <header class="header">
+      <div>
+        <h1 data-i18n="app.title">ZamanYar</h1>
+        <p id="domainLabel">در حال خواندن تب...</p>
+      </div>
+      <span class="badge" data-i18n="badge.pro">Pro</span>
+    </header>
+
+    <section class="panel">
+      <div class="switch-row">
+        <span>
+          <strong data-i18n="popup.global">فعال‌سازی سراسری</strong>
+          <small data-i18n="globalEnabled.help">روی همه سایت‌ها اعمال شود.</small>
+        </span>
+        <input type="checkbox" id="toggleGlobal">
+      </div>
+
+      <div class="switch-row">
+        <span>
+          <strong data-i18n="popup.domain">وضعیت همین دامنه</strong>
+          <small id="domainHint" data-i18n="popup.domainHelp">برای سایت فعلی ذخیره می‌شود.</small>
+        </span>
+        <input type="checkbox" id="toggleDomain">
+      </div>
+
+      <div class="switch-row">
+        <span>
+          <strong data-i18n="convertRelativeTimes.globalTitle">تبدیل سراسری زمان نسبی</strong>
+          <small data-i18n="convertRelativeTimes.help">عبارت‌هایی مثل 5 years ago را به زبان افزونه تبدیل می‌کند.</small>
+        </span>
+        <input type="checkbox" id="toggleRelativeGlobal">
+      </div>
+    </section>
+
+    <section class="panel quick-panel">
+      <h2 data-i18n="popup.quick">تنظیم سریع سایت فعلی</h2>
+      <div class="quick-grid">
+        <label class="wide-control">
+          <span data-i18n="font">فونت</span>
+          <select id="quickFont">
+            <option value="" data-i18n="option.siteFont">فونت سایت</option>
+          </select>
+          <button class="quick-reset inline-button" type="button" id="loadQuickSystemFonts" data-i18n="font.loadSystemFonts">بارگذاری فونت‌های سیستم</button>
+          <small data-i18n="fontSystemHelp">فونت را روی سیستم‌عامل نصب کنید تا اینجا قابل انتخاب باشد.</small>
+        </label>
+        <label>
+          <span data-i18n="fontSize">سایز فونت</span>
+          <select id="quickFontSize">
+            <option value="" data-i18n="option.siteSize">سایز سایت</option>
+            <option value="12px">۱۲px</option>
+            <option value="13px">۱۳px</option>
+            <option value="14px">۱۴px</option>
+            <option value="15px">۱۵px</option>
+            <option value="16px">۱۶px</option>
+            <option value="18px">۱۸px</option>
+            <option value="20px">۲۰px</option>
+            <option value="22px">۲۲px</option>
+            <option value="24px">۲۴px</option>
+          </select>
+        </label>
+      </div>
+      <div class="quick-toggle">
+        <span>
+          <strong data-i18n="convertRelativeTimes.title">تبدیل زمان نسبی</strong>
+          <small data-i18n="convertRelativeTimes.help">عبارت‌هایی مثل 5 years ago را به زبان افزونه تبدیل می‌کند.</small>
+        </span>
+        <input type="checkbox" id="quickConvertRelativeTimes">
+      </div>
+      <div class="quick-grid">
+        <label>
+          <span data-i18n="direction">جهت</span>
+          <select id="quickDirection">
+            <option value="inherit" data-i18n="option.inherit">بدون تغییر</option>
+            <option value="rtl" data-i18n="option.rtlShort">RTL</option>
+            <option value="ltr" data-i18n="option.ltrShort">LTR</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="alignment">چینش</span>
+          <select id="quickAlign">
+            <option value="inherit" data-i18n="option.inherit">بدون تغییر</option>
+            <option value="right" data-i18n="option.right">راست</option>
+            <option value="left" data-i18n="option.left">چپ</option>
+            <option value="center" data-i18n="option.center">وسط</option>
+          </select>
+        </label>
+      </div>
+      <div class="quick-grid">
+        <label>
+          <span data-i18n="popup.calendar">تقویم</span>
+          <select id="quickCalendarSystem">
+            <option value="jalali" data-i18n="option.jalali">جلالی</option>
+            <option value="hijri" data-i18n="option.hijri">هجری قمری</option>
+          </select>
+        </label>
+      </div>
+      <div class="quick-grid">
+        <label>
+          <span data-i18n="popup.numbers">اعداد</span>
+          <select id="quickNumberMode">
+            <option value="none" data-i18n="option.none">بدون تغییر</option>
+            <option value="enToFa" data-i18n="option.enToFa">انگلیسی به فارسی</option>
+            <option value="faToEn" data-i18n="option.faToEn">فارسی به انگلیسی</option>
+            <option value="enToAr" data-i18n="option.enToAr">انگلیسی به عربی</option>
+            <option value="faToAr" data-i18n="option.faToAr">فارسی به عربی</option>
+            <option value="arToFa" data-i18n="option.arToFa">عربی به فارسی</option>
+            <option value="arToEn" data-i18n="option.arToEn">عربی به انگلیسی</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="outputLocale">زبان خروجی</span>
+          <select id="quickOutputLocale">
+            <option value="fa-IR" data-i18n="locale.faIR">فارسی ایران</option>
+            <option value="fa-AF" data-i18n="locale.faAF">دری افغانستان</option>
+            <option value="ur-PK" data-i18n="locale.urPK">اردو</option>
+            <option value="ps-AF" data-i18n="locale.psAF">پشتو افغانستان</option>
+            <option value="ar-SA" data-i18n="locale.arSA">العربية</option>
+          </select>
+        </label>
+      </div>
+      <div class="quick-grid">
+        <label>
+          <span data-i18n="timeFormat">ساعت</span>
+          <select id="quickTimeFormat">
+            <option value="preserve" data-i18n="time.preserve">مثل سایت</option>
+            <option value="12h" data-i18n="time.12h">۱۲ ساعته</option>
+            <option value="24h" data-i18n="time.24h">۲۴ ساعته</option>
+            <option value="24h-seconds" data-i18n="time.24hSeconds">۲۴ ساعته + ثانیه</option>
+          </select>
+        </label>
+      </div>
+      <div class="quick-grid date-format-grid">
+        <label>
+          <span data-i18n="popup.date">تاریخ</span>
+          <select id="quickDateMode">
+            <option value="preserve" data-i18n="option.preserve">مثل سایت</option>
+            <option value="custom" data-i18n="option.custom">دلخواه</option>
+          </select>
+        </label>
+        <label class="custom-date-control">
+          <span data-i18n="customDate">الگوی دلخواه تاریخ</span>
+          <input type="text" id="quickCustomDate" dir="ltr" placeholder="YYYY/MM/DD">
+          <small data-i18n="customDateExample">YYYY/MM/DD، D MMMM YYYY، YYYY-MM-DD</small>
+        </label>
+      </div>
+      <p class="dirty-note" id="dirtyNote" hidden data-i18n="popup.unsaved">تغییراتی داده شده که ذخیره نشده؛ برای نهایی شدن ذخیره کنید.</p>
+      <div class="quick-actions">
+        <button class="quick-save" id="saveQuickSite" type="button" data-i18n="popup.saveSite">ذخیره برای همین سایت</button>
+        <button class="quick-reset" id="resetQuickSite" type="button" data-i18n="reset">بازنشانی</button>
+      </div>
+    </section>
+
+    <p class="status" id="statusText" role="status"></p>
+
+    <button class="picker-button" id="startPicker" type="button" data-i18n="popup.pick">انتخاب تاریخ از صفحه</button>
+    <button class="settings-button" id="openOptions" type="button" data-i18n="popup.advanced">تنظیمات پیشرفته</button>
+    <button class="about-button" id="openAbout" type="button" data-i18n="popup.about">درباره سازنده</button>
+
+    <p class="quote" data-i18n="quote">“Calendars differ; time should stay readable for everyone.”</p>
+  </main>
+  <script src="../shared/i18n.js"></script>
+  <script src="../shared/system-fonts.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

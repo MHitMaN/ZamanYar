@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "ZamanYar",
+  "version": "1.0.0",
+  "incognito": "spanning",
+  "description": "Smart browser extension for localized calendars, dates, times, numbers, fonts, and per-site layout controls",
+  "permissions": ["storage", "scripting", "activeTab", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/jalaali.js", "src/content/content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["Languages/*.json"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  },
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "zamanyar@mhitman.github.io",
+      "strict_min_version": "109.0"
+    }
+  }
+}

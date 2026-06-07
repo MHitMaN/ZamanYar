@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZamanYar Test Fixture</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      color: #172033;
+      background: #f6f8fb;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: #5b6575;
+    }
+
+    section {
+      margin: 16px 0;
+      padding: 18px;
+      background: #fff;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .fixture-block {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font: 15px/1.8 Consolas, Monaco, monospace;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Gregorian Date Format Test Fixture</h1>
+    <p>Use this page to test ZamanYar against common Date, ISO, RFC, numeric, textual, timezone, and AM/PM formats.</p>
+
+    <section>
+      <h2>Raw Date Parts</h2>
+      <div class="fixture-block">
+2026
+26
+05
+5
+24
+Sun
+Sunday
+Tue
+Tuesday
+Thr
+thr
+thrisday
+Thu
+Thursday
+th
+143
+21
+May
+31
+pm
+PM
+am
+AM
+000
+6
+18
+06
+18
+45
+09
+123456
+123
+Europe/Berlin
++0200
++02:00
+CEST
+      </div>
+    </section>
+
+    <section>
+      <h2>ISO And RFC</h2>
+      <div class="fixture-block">
+2026-05-24T18:45:09+02:00
+2026-05-24T18:45:09+0200
+2026-05-24T18:45:09Z
+2026-05-24T18:45:09.123Z
+2026-05-24T18:45:09.123+02:00
+2026-05-24T18:45:09.123456Z
+2026-05-24T18:45:09.123456+02:00
+Sun, 24 May 2026 18:45:09 +0200
+Sunday, 24-May-26 18:45:09 CEST
+Sun May 24 18:45:09 2026
+Sun May 24 2026 18:45:09 GMT+0200 (CEST)
+Sun May 24 18:45:09 2026 GMT+0200 (CEST)
+Sunday, 24-May-26 18:45:09 CEST
+Sun, 24-May-26 18:45:09 +0200
+      </div>
+    </section>
+
+    <section>
+      <h2>Numeric Dates</h2>
+      <div class="fixture-block">
+2026/05/24
+2026-05-24
+2026.05.24
+26-05-24
+26/05/24
+26.05.24
+24-05-2026
+24/05/2026
+24.05.2026
+05-24-2026
+05/24/2026
+05.24.2026
+2026-24-05
+2026/24/05
+2026.24.05
+      </div>
+    </section>
+
+    <section>
+      <h2>Date Times</h2>
+      <div class="fixture-block">
+2026-05-24 18:45
+2026-05-24 18:45:09
+2026-05-24 18:45:09.123
+2026-05-24 18:45:09.123456
+2026/05/24 18:45
+2026/05/24 18:45:09
+2026.05.24 18:45
+2026.05.24 18:45:09
+24-05-2026 18:45
+24-05-2026 18:45:09
+24/05/2026 18:45
+24/05/2026 18:45:09
+24.05.2026 18:45
+24.05.2026 18:45:09
+05-24-2026 18:45
+05-24-2026 18:45:09
+05/24/2026 18:45
+05/24/2026 18:45:09
+05.24.2026 18:45
+05.24.2026 18:45:09
+      </div>
+    </section>
+
+    <section>
+      <h2>Textual Dates</h2>
+      <div class="fixture-block">
+May 24, 2026
+Jun. 22, 2022
+June 22 2022
+22 Jun. 2022
+22-June-2022
+2022 Jun 22
+2022-Jun.-22
+2022 22 Jun
+2022/June/22
+JAN 5, 2026
+Feb. 25, 2026
+Mar. 8, 2026
+Apr. 9, 2026
+Jul. 11, 2026
+Aug. 12, 2026
+Sep. 13, 2026
+Sept. 14, 2026
+September 15, 2026
+Oct. 16, 2026
+Nov. 17, 2026
+Dec. 18, 2026
+May 2026
+Jun. 2022
+May ۲۰۲۶
+May 24, 2026 18:45
+May 24, 2026 18:45:09
+May 24
+May 10
+Feb 25
+Feb 25 18:45
+Feb-25 18:45:09 CEST
+24 May 2026
+24 May 2026 18:45
+24 May 2026 18:45:09
+Sunday, May 24, 2026
+Sunday, May 24, 2026 18:45
+Sunday, May 24, 2026 18:45:09
+Sun, May 24, 2026
+Sun, May 24, 2026 18:45
+Sun, May 24, 2026 18:45:09
+Sunday, 24 May 2026
+Sun, 24 May 2026
+on Jun 22, 2022
+<relative-time datetime="2022-06-22T19:14:48Z">Jun 22, 2022</relative-time>
+<time datetime="2022-06-22T19:14:48Z">Jun 22, 2022</time>
+<relative-time datetime="2022-06-22T15:52:46Z" class="no-wrap" title="Jun 22, 2022, 8:22 PM GMT+4:30">Jun 22, 2022</relative-time>
+<relative-time tense="past" datetime="2022-06-22T15:46:53.000Z" title="Jun 22, 2022, 8:16 PM GMT+4:30">Jun 22, 2022</relative-time>
+<span id="shadow-relative-host"></span>
+<time datetime="2026-05-24T22:31:49.446Z" aria-label="۳ خرداد ۱۴۰۵">۳۰ دقیقه پیش</time>
+      </div>
+    </section>
+
+    <section>
+      <h2>Relative Times</h2>
+      <div class="fixture-block">
+5 years ago
+1 year ago
+5 months ago
+1 month ago
+5 days ago
+1 day ago
+5 minutes ago
+5 hours ago
+5 hour ago
+5 yrs ago
+5 mo ago
+5 min ago
+1 hour ago
+30 seconds ago
+<span class="ytAttributedStringHost ytContentMetadataViewModelMetadataText ytAttributedStringWhiteSpacePreWrap ytAttributedStringLinkInheritColor" dir="auto" role="text">5 days ago</span>
+<span class="ytAttributedStringHost" dir="auto" role="text"><span>5</span> months ago</span>
+<span class="ytAttributedStringHost" dir="auto" role="text"><span>1</span> year ago</span>
+<span class="ytAttributedStringHost ytContentMetadataViewModelMetadataText" dir="auto" role="text">5 minutes</span>
+<span class="ytAttributedStringHost ytContentMetadataViewModelMetadataText" dir="auto" role="text"><span>5</span> hours</span>
+<span class="ytAttributedStringHost ytContentMetadataViewModelMetadataText" dir="auto" role="text"><span>10</span><span> years ago</span></span>
+<span class="ytAttributedStringHost ytContentMetadataViewModelMetadataText" dir="auto" role="text"><span>1</span><span> hours ago</span></span>
+<div class="ytLockupMetadataViewModelMetadata">Forbidden History20K views • 7 days ago</div>
+<div class="ytLockupMetadataViewModelMetadata">Comment metadata • 1 hours ago</div>
+<div class="ytLockupMetadataViewModelMetadata">Old comment • 10 years ago</div>
+<span title="5 years ago" aria-label="5 months ago">Relative title attributes</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Prefixed Dates</h2>
+      <div class="fixture-block">
+Before 16/06/2026
+After 16/06/2026
+<span data-ng-bind-html=":: $ctrl.getDisplayedDateOfEffect($row)" class="ng-binding">Before 16/06/2026</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Delayed Ajax / React-like Content</h2>
+      <div class="fixture-block" id="delayed-content">Loading...</div>
+      <script>
+        window.setTimeout(() => {
+          document.getElementById('delayed-content').innerHTML = [
+            '<p>Loaded date: May 24, 2026</p>',
+            '<p>Loaded ISO: 2026-05-24T18:45:09Z</p>',
+            '<relative-time datetime="2022-06-22T19:14:48Z">Jun 22, 2022</relative-time>',
+            '<p>Loaded relative: 5 months ago</p>',
+            '<span class="ytAttributedStringHost ytContentMetadataViewModelMetadataText ytAttributedStringWhiteSpacePreWrap ytAttributedStringLinkInheritColor" dir="auto" role="text">5 days ago</span>',
+            '<span class="ytAttributedStringHost" dir="auto" role="text"><span>5</span> years ago</span>'
+          ].join('');
+        }, 1500);
+
+        window.setTimeout(() => {
+          const paragraph = document.createElement('p');
+          paragraph.textContent = 'Scrolled relative: 1 year ago';
+          document.getElementById('delayed-content').append(paragraph);
+        }, 3200);
+
+        const shadowHost = document.getElementById('shadow-relative-host');
+        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+        shadowRoot.innerHTML = '4 years ago';
+        window.setTimeout(() => {
+          shadowRoot.textContent = '4 years ago';
+        }, 1200);
+      </script>
+    </section>
+
+    <section>
+      <h2>AM PM Times</h2>
+      <div class="fixture-block">
+2026-05-24 6:45 pm
+2026-05-24 06:45 PM
+2026-05-24 6:45:09 pm
+2026-05-24 06:45:09 PM
+24/05/2026 6:45 pm
+24/05/2026 06:45 PM
+05/24/2026 6:45 pm
+05/24/2026 06:45 PM
+Sunrise: 4:58 am
+Sunset: 9:10 pm
+Moonrise: 12:49 pm
+Moonset: 2:28 am
+      </div>
+    </section>
+
+    <section>
+      <h2>Standalone Month Labels</h2>
+      <table>
+        <tr>
+          <td class="ContributionCalendar-label" colspan="5" style="position: relative">
+            <span class="sr-only">June</span>
+            <span aria-hidden="true" style="position: absolute; top: 0">Jun</span>
+          </td>
+          <td class="ContributionCalendar-label" colspan="4" style="position: relative">
+            <span class="sr-only">December</span>
+            <span aria-hidden="true" style="position: absolute; top: 0">Dec</span>
+          </td>
+        </tr>
+      </table>
+      <span class="color-bg-default pl-2 tmp-pr-3" data-sr-feedback="" tabindex="-1">December <span class="color-fg-muted">2022</span></span>
+    </section>
+
+    <section>
+      <h2>Datepicker Safety</h2>
+      <div class="flatpickr-calendar">
+        <time datetime="2022-06-22T15:52:46Z">Jun 22, 2022</time>
+        <span>2022-06-22</span>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZamanYar Demo</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">ZamanYar</p>
+        <h1 data-demo-i18n="hero.title">تبدیل هوشمند تاریخ برای مرورگرهای مدرن</h1>
+        <p data-demo-i18n="hero.text">تاریخ‌های میلادی را در صفحات وب به جلالی یا هجری قمری تبدیل کن، با تنظیمات جدا برای هر سایت، فونت، اعداد، زبان و جهت متن.</p>
+      </div>
+    </section>
+
+    <section class="language-switcher">
+      <label>
+        <span data-demo-i18n="demo.language">زبان دمو</span>
+        <select id="demoLanguage">
+          <option value="fa">فارسی</option>
+          <option value="ur">اردو</option>
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="intro-grid">
+      <article>
+        <h2 data-demo-i18n="intro.languages.title">برای کاربران فارسی، اردو و عربی</h2>
+        <p data-demo-i18n="intro.languages.text">افزونه خروجی جلالی/شمسی، دری، پشتو و هجری قمری را پشتیبانی می‌کند و UI خود افزونه هم در فارسی، اردو، عربی و انگلیسی قابل تغییر است.</p>
+      </article>
+      <article>
+        <h2 data-demo-i18n="intro.safe.title">بدون خراب‌کردن سایت‌ها</h2>
+        <p data-demo-i18n="intro.safe.text">Datepickerها، آیکن‌فونت‌ها، inputها و کدها از تبدیل کنار گذاشته می‌شوند تا فرم‌ها و ابزارهای تعاملی سایت سالم بمانند.</p>
+      </article>
+      <article>
+        <h2 data-demo-i18n="intro.domain.title">تنظیمات جدا برای هر دامنه</h2>
+        <p data-demo-i18n="intro.domain.text">هر سایت می‌تواند تقویم، زبان خروجی، فونت، سایز، ضخامت، جهت متن، چینش و selectorهای مخصوص خودش را داشته باشد.</p>
+      </article>
+    </section>
+
+    <section class="screenshots">
+      <h2 data-demo-i18n="samples.title">نمونه‌ها</h2>
+      <div class="screenshot-grid">
+        <figure>
+          <div class="mock-window">
+            <span>GitHub Releases</span>
+            <strong>Jun 22, 2022</strong>
+            <b>۲ تیر ۱۴۰۱</b>
+          </div>
+          <figcaption data-demo-i18n="samples.github">تبدیل تاریخ‌های GitHub و relative-time</figcaption>
+        </figure>
+        <figure>
+          <div class="mock-window rtl-sample">
+            <span>Sunday, May 24, 2026</span>
+            <strong>الأحد، ۱۸ ذو الحجة ۱۴۴۷</strong>
+            <b>Hijri / Arabic</b>
+          </div>
+          <figcaption data-demo-i18n="samples.hijri">خروجی هجری قمری برای کاربران عرب‌زبان</figcaption>
+        </figure>
+        <figure>
+          <div class="mock-window settings-sample">
+            <span>Font: System installed font</span>
+            <span>Calendar: Jalali</span>
+            <span>Format: YYYY/MM/DD</span>
+          </div>
+          <figcaption data-demo-i18n="samples.settings">تنظیمات سریع و تنظیمات پیشرفته</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="downloads" id="downloads">
+      <h2 data-demo-i18n="downloads.title">دانلود و نصب</h2>
+      <p data-demo-i18n="downloads.text">پس از انتشار رسمی، لینک‌های فروشگاه‌ها اینجا قرار می‌گیرند. خروجی‌های zip هم از GitHub Releases قابل دریافت هستند.</p>
+      <div class="download-grid">
+        <a href="https://github.com/MHitMaN/zamanyar/releases/latest/download/zamanyar-chrome.zip">Chrome</a>
+        <a href="https://github.com/MHitMaN/zamanyar/releases/latest/download/zamanyar-firefox.zip">Firefox</a>
+        <a href="https://github.com/MHitMaN/zamanyar/releases/latest/download/zamanyar-brave.zip">Brave</a>
+        <a href="https://github.com/MHitMaN/zamanyar/releases/latest/download/zamanyar-edge.zip">Edge</a>
+        <a href="https://github.com/MHitMaN/zamanyar/releases/latest/download/zamanyar-safari-source.zip">Safari</a>
+      </div>
+      <small data-demo-i18n="downloads.safari">Safari نیازمند بسته‌بندی و انتشار به عنوان Safari Web Extension از طریق Xcode/App Store است.</small>
+    </section>
+
+    <section class="workspace">
+      <h2 class="section-title" data-demo-i18n="live.title">دموی زنده</h2>
+      <div class="install-notice" id="installNotice" hidden>
+        <strong data-demo-i18n="install.title">افزونه در این صفحه فعال نیست.</strong>
+        <span data-demo-i18n="install.text">برای مشاهده تبدیل واقعی تاریخ‌ها در مرورگر، افزونه را نصب یا برای این صفحه فعال کنید. پیش‌نمایش زیر همچنان به‌صورت شبیه‌سازی‌شده در دسترس است.</span>
+      </div>
+
+      <form class="controls" id="controls">
+        <label>
+          <span data-demo-i18n="control.font">فونت</span>
+          <select id="fontFamily">
+            <option value="">Site font</option>
+          </select>
+          <button class="secondary inline-button" type="button" id="loadDemoSystemFonts" data-demo-i18n="control.loadFonts">بارگذاری فونت‌های سیستم</button>
+          <small data-demo-i18n="control.fontHelp">فونت را روی سیستم‌عامل نصب کنید؛ افزونه همان فونت نصب‌شده را برای انتخاب نشان می‌دهد.</small>
+        </label>
+        <label>
+          <span data-demo-i18n="control.direction">جهت</span>
+          <select id="direction">
+            <option value="rtl">RTL</option>
+            <option value="ltr">LTR</option>
+          </select>
+        </label>
+        <label>
+          <span data-demo-i18n="control.align">چینش</span>
+          <select id="align">
+            <option value="right" data-demo-i18n="control.alignRight">راست</option>
+            <option value="left" data-demo-i18n="control.alignLeft">چپ</option>
+            <option value="center" data-demo-i18n="control.alignCenter">وسط</option>
+          </select>
+        </label>
+        <label>
+          <span data-demo-i18n="control.locale">زبان خروجی</span>
+          <select id="locale">
+            <option value="fa-IR">فارسی ایران</option>
+            <option value="fa-AF">دری افغانستان</option>
+            <option value="ps-AF">پشتو افغانستان</option>
+            <option value="ar-SA">العربية / هجري قمري</option>
+          </select>
+        </label>
+      </form>
+
+      <div class="demo-grid" id="preview">
+        <article class="preview language-demo" lang="fa" dir="rtl" data-demo-card="fa">
+          <span class="language-label">فارسی</span>
+          <h2 class="sample-line">Sunday, 24 May 2026 18:45:09 +0200</h2>
+          <p class="sample-line">ISO: 2026-05-24T18:45:09+02:00</p>
+          <p class="sample-line">Numeric: 24/05/2026 6:45 pm</p>
+          <p class="sample-line">Textual: May 24, 2026</p>
+          <p class="sample-line">Telegram-like: May 10, Feb 25, Thu, Thr, May 2026</p>
+          <p class="result" data-demo-result="fa"></p>
+        </article>
+
+        <article class="preview language-demo" lang="ur" dir="rtl" data-demo-card="ur">
+          <span class="language-label">اردو</span>
+          <h2 class="sample-line">Sunday, 24 May 2026 18:45:09 +0200</h2>
+          <p class="sample-line">ISO: 2026-05-24T18:45:09+02:00</p>
+          <p class="sample-line">عددی: 24/05/2026 6:45 pm</p>
+          <p class="sample-line">متنی: May 24, 2026</p>
+          <p class="sample-line">مختصر: May 10، Feb 25، Thu، Thr، May 2026</p>
+          <p class="result" data-demo-result="ur"></p>
+        </article>
+
+        <article class="preview language-demo" lang="ar" dir="rtl" data-demo-card="ar">
+          <span class="language-label">العربية</span>
+          <h2 class="sample-line">Sunday, 24 May 2026 18:45:09 +0200</h2>
+          <p class="sample-line">ISO: 2026-05-24T18:45:09+02:00</p>
+          <p class="sample-line">رقمي: 24/05/2026 6:45 pm</p>
+          <p class="sample-line">نصي: May 24, 2026</p>
+          <p class="sample-line">مختصر: May 10، Feb 25، Thu، Thr، May 2026</p>
+          <p class="result" data-demo-result="ar"></p>
+        </article>
+
+        <article class="preview language-demo" lang="en" dir="ltr" data-demo-card="en">
+          <span class="language-label">English</span>
+          <h2 class="sample-line">Sunday, 24 May 2026 18:45:09 +0200</h2>
+          <p class="sample-line">ISO: 2026-05-24T18:45:09+02:00</p>
+          <p class="sample-line">Numeric: 24/05/2026 6:45 pm</p>
+          <p class="sample-line">Textual: May 24, 2026</p>
+          <p class="sample-line">Short forms: May 10, Feb 25, Thu, Thr, May 2026</p>
+          <p class="result" data-demo-result="en"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <h2 data-demo-i18n="about.title">درباره سازنده</h2>
+      <div class="about-card">
+        <img src="https://www.gravatar.com/avatar/7173544c295e4da83c06463894924e24?s=128&d=https%3A%2F%2Fgithub.com%2FMHitMaN.png" alt="MHitMaN avatar">
+        <div>
+          <h3>MHitMaN</h3>
+          <p data-demo-i18n="author.role">توسعه‌دهنده فول‌استک</p>
+          <p class="about-quote" data-demo-i18n="quote">«تقویم‌ها متفاوت‌اند؛ زمان باید برای همه خوانا بماند.»</p>
+        </div>
+      </div>
+      <p class="copyright">© <span id="copyrightYear">----</span> MHitMaN. <span data-demo-i18n="copyright.note">با ذکر منبع آزادانه استفاده کنید.</span></p>
+      <div class="about-links">
+        <a href="https://github.com/MHitMaN" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/mgh71/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:ghasemi71ir@gmail.com">Email</a>
+      </div>
+      <div class="donate">
+        <h3 data-demo-i18n="donate.title">حمایت مالی</h3>
+        <p data-demo-i18n="donate.text">اگر این افزونه به کارت آمد، با TRX یا BTC از توسعه نسخه‌های بهتر حمایت کن.</p>
+        <code><span data-demo-i18n="donate.trx">کیف پول TRX</span>: TXXW1bMV2pSeiq72hvcokCATdHjJPpAKWC</code>
+        <code><span data-demo-i18n="donate.btc">کیف پول BTC</span>: bc1q6vv6f9euvv8jfw3ftv88jrp7rrflejc98uacer</code>
+      </div>
+    </section>
+
+  </main>
+  <script src="demo.js"></script>
+</body>
+</html>

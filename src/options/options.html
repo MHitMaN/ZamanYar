@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZamanYar Options</title>
+  <link rel="stylesheet" href="../../assets/styles/options.css">
+</head>
+<body>
+  <div class="language-modal" id="languageModal" hidden>
+    <div class="language-dialog">
+      <h2 data-i18n="language.choose">زبان موردنظر برای کار با افزونه را انتخاب کن</h2>
+      <select id="firstRunLanguage">
+        <option value="fa">فارسی</option>
+        <option value="ur">اردو</option>
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+      </select>
+      <button type="button" id="saveFirstRunLanguage" data-i18n="language.save">ذخیره زبان</button>
+    </div>
+  </div>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">ZamanYar</p>
+        <h1 data-i18n="options.title">تنظیمات تبدیل تاریخ</h1>
+        <p data-i18n="options.subtitle">تنظیمات این صفحه ذخیره می‌شود و روی تب‌های فعال دوباره اعمال خواهد شد.</p>
+      </div>
+    </header>
+
+    <form class="settings" id="settingsForm">
+      <section class="section grid">
+        <label>
+          <span data-i18n="language.title">زبان افزونه</span>
+          <select id="uiLanguage">
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+          </select>
+          <small data-i18n="language.subtitle">زبان منوها، popup و صفحه تنظیمات افزونه.</small>
+        </label>
+        <label>
+          <span data-i18n="scope.saveFor">ذخیره تنظیمات برای</span>
+          <select id="settingsScope">
+            <option value="global" data-i18n="scope.global">همه سایت‌ها</option>
+            <option value="site" data-i18n="scope.site">فقط سایت فعلی</option>
+          </select>
+        </label>
+        <div class="scope-note">
+          <strong id="currentDomainLabel">سایت فعلی: در حال خواندن...</strong>
+          <small data-i18n="scope.siteOverrideHelp">تنظیمات سایت فعلی روی تنظیمات عمومی اولویت دارد.</small>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="behavior.title">رفتار افزونه</h2>
+        <div class="toggle">
+          <span>
+            <strong data-i18n="globalEnabled.title">فعال‌سازی سراسری</strong>
+            <small data-i18n="globalEnabled.help">اگر خاموش باشد فقط دامنه‌هایی که دستی فعال شده‌اند تبدیل می‌شوند.</small>
+          </span>
+          <input type="checkbox" id="globalEnabled">
+        </div>
+        <div class="toggle">
+          <span>
+            <strong data-i18n="convertDates.title">تبدیل تاریخ میلادی</strong>
+            <small data-i18n="convertDates.help">تاریخ‌ها را به تقویم انتخاب‌شده تبدیل می‌کند.</small>
+          </span>
+          <input type="checkbox" id="convertDates">
+        </div>
+        <div class="toggle">
+          <span>
+            <strong data-i18n="convertRelativeTimes.title">تبدیل زمان نسبی</strong>
+            <small data-i18n="convertRelativeTimes.help">عبارت‌هایی مثل 5 years ago را به زبان افزونه تبدیل می‌کند.</small>
+          </span>
+          <input type="checkbox" id="convertRelativeTimes">
+        </div>
+      </section>
+
+      <section class="section grid">
+        <label>
+          <span data-i18n="numberMode">تبدیل اعداد</span>
+          <select id="numberMode">
+            <option value="none" data-i18n="option.none">بدون تغییر</option>
+            <option value="enToFa" data-i18n="option.enToFa">English to Persian</option>
+            <option value="faToEn" data-i18n="option.faToEn">Persian to English</option>
+            <option value="enToAr" data-i18n="option.enToAr">English to Arabic</option>
+            <option value="faToAr" data-i18n="option.faToAr">Persian to Arabic</option>
+            <option value="arToFa" data-i18n="option.arToFa">Arabic to Persian</option>
+            <option value="arToEn" data-i18n="option.arToEn">Arabic to English</option>
+          </select>
+        </label>
+
+        <label>
+          <span data-i18n="fontPage">فونت صفحه</span>
+          <select id="fontFamily">
+            <option value="" data-i18n="option.siteFont">فونت سایت</option>
+          </select>
+          <button class="secondary inline-button" type="button" id="loadSystemFonts" data-i18n="font.loadSystemFonts">بارگذاری فونت‌های سیستم</button>
+          <small data-i18n="fontSystemHelp">فونت دلخواه را روی سیستم‌عامل نصب کنید؛ سپس در این فهرست در دسترس افزونه قرار می‌گیرد.</small>
+        </label>
+
+        <label>
+          <span data-i18n="fontSize">سایز فونت</span>
+          <select id="fontSize">
+            <option value="" data-i18n="option.siteSize">سایز سایت</option>
+            <option value="12px">۱۲px</option>
+            <option value="13px">۱۳px</option>
+            <option value="14px">۱۴px</option>
+            <option value="15px">۱۵px</option>
+            <option value="16px">۱۶px</option>
+            <option value="18px">۱۸px</option>
+            <option value="20px">۲۰px</option>
+            <option value="22px">۲۲px</option>
+            <option value="24px">۲۴px</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="section grid">
+        <div class="toggle">
+          <span>
+            <strong data-i18n="convertTimes.title">تبدیل ساعت</strong>
+            <small data-i18n="convertTimes.help">زمان‌های همراه تاریخ را به منطقه زمانی انتخاب‌شده تبدیل می‌کند.</small>
+          </span>
+          <input type="checkbox" id="convertTimes">
+        </div>
+        <label>
+          <span data-i18n="targetTimeZone">نمایش ساعت بر اساس</span>
+          <select id="timeZone">
+            <option value="Asia/Tehran" data-i18n="tz.tehran">ایران - تهران</option>
+            <option value="Asia/Kabul" data-i18n="tz.kabul">افغانستان - کابل</option>
+            <option value="Asia/Dushanbe" data-i18n="tz.dushanbe">تاجیکستان - دوشنبه</option>
+            <option value="UTC" data-i18n="tz.utc">UTC</option>
+            <option value="local" data-i18n="tz.local">زمان سیستم</option>
+          </select>
+        </label>
+
+        <label>
+          <span data-i18n="sourceTimeZone">اگر ساعت صفحه timezone ندارد، فرض کن مربوط به</span>
+          <select id="sourceTimeZone">
+            <option value="UTC" data-i18n="tz.utcGmt">UTC / GMT</option>
+            <option value="local" data-i18n="tz.local">زمان سیستم</option>
+            <option value="Asia/Tehran" data-i18n="tz.tehran">ایران - تهران</option>
+            <option value="Asia/Kabul" data-i18n="tz.kabul">افغانستان - کابل</option>
+            <option value="Asia/Dushanbe" data-i18n="tz.dushanbe">تاجیکستان - دوشنبه</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="section grid">
+        <label>
+          <span data-i18n="calendarSystem">نوع تقویم خروجی</span>
+          <select id="calendarSystem">
+            <option value="jalali" data-i18n="option.jalali">جلالی / هجری خورشیدی</option>
+            <option value="hijri" data-i18n="option.hijri">هجری قمری / اسلامی</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="outputLocale">زبان خروجی تاریخ</span>
+          <select id="outputLocale">
+            <option value="fa-IR" data-i18n="locale.faIR">فارسی ایران</option>
+            <option value="fa-AF" data-i18n="locale.faAF">دری افغانستان</option>
+            <option value="ur-PK" data-i18n="locale.urPK">اردو</option>
+            <option value="ps-AF" data-i18n="locale.psAF">پشتو افغانستان</option>
+            <option value="ar-SA" data-i18n="locale.arSA">العربية</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="dateFormat">فرمت نهایی تاریخ</span>
+          <select id="dateFormatMode">
+            <option value="preserve" data-i18n="option.preserve">مثل فرمت خود سایت</option>
+            <option value="custom" data-i18n="option.custom">فرمت دلخواه من</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="customDate">الگوی دلخواه تاریخ</span>
+          <input type="text" id="customDateFormat" dir="ltr" placeholder="YYYY/MM/DD">
+          <small dir="ltr" data-i18n="customDateAdvancedExample">YYYY/MM/DD, YYYY-MM-DD, D MMMM YYYY, MMMM D, YYYY, DD.MM.YYYY</small>
+        </label>
+        <label>
+          <span data-i18n="timeFormat">فرمت ساعت</span>
+          <select id="timeFormat">
+            <option value="preserve" data-i18n="time.preserve">مثل خود سایت</option>
+            <option value="12h" data-i18n="time.12hLocalized">۱۲ ساعته فارسی</option>
+            <option value="24h" data-i18n="time.24h">۲۴ ساعته</option>
+            <option value="24h-seconds" data-i18n="time.24hSecondsLong">۲۴ ساعته با ثانیه</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="section grid">
+        <label>
+          <span data-i18n="direction">جهت متن</span>
+          <select id="directionMode">
+            <option value="inherit" data-i18n="option.inherit">بدون تغییر</option>
+            <option value="rtl" data-i18n="option.rtl">راست به چپ</option>
+            <option value="ltr" data-i18n="option.ltr">چپ به راست</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="alignment">چینش متن</span>
+          <select id="textAlignMode">
+            <option value="inherit" data-i18n="option.inherit">بدون تغییر</option>
+            <option value="right" data-i18n="option.right">راست</option>
+            <option value="left" data-i18n="option.left">چپ</option>
+            <option value="center" data-i18n="option.center">وسط</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="section demo-section">
+        <h2 data-i18n="livePreview">پیش‌نمایش زنده</h2>
+        <div class="demo-card" id="liveDemo">
+          <p class="demo-title">Sunday, 24 May 2026 18:45:09 +0200</p>
+          <p>ISO: 2026-05-24T18:45:09+02:00</p>
+          <p>Numeric: 24/05/2026 6:45 pm</p>
+          <p>Text: May 24, 2026</p>
+          <p>Font sample: ZamanYar</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="conversionScope">محدوده تبدیل</h2>
+        <label>
+          <span data-i18n="manualSelector">CSS selector تکمیلی</span>
+          <input type="text" id="manualSelector" dir="ltr" placeholder=".date, time, [data-date]">
+        </label>
+        <p class="help" data-i18n="manualSelectorHelp">برای تاریخ‌هایی که تشخیص خودکار کافی نیست، از popup گزینه انتخاب تاریخ از صفحه را بزنید.</p>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="domains">دامنه‌های سفارشی</h2>
+        <div class="domain-list" id="domainList"></div>
+        <div class="selector-list" id="selectorList"></div>
+        <p class="help" data-i18n="domainsHelp">وضعیت دامنه‌ها از popup ذخیره می‌شود و اینجا قابل پاک‌سازی است.</p>
+      </section>
+
+      <section class="section about-section" id="about">
+        <h2 data-i18n="about.title">درباره سازنده</h2>
+        <div class="about-card">
+          <img src="https://www.gravatar.com/avatar/7173544c295e4da83c06463894924e24?s=128&d=https%3A%2F%2Fgithub.com%2FMHitMaN.png" alt="MHitMaN avatar">
+          <div>
+            <h3>MHitMaN</h3>
+            <p class="about-quote" data-i18n="quote">“Calendars differ; time should stay readable for everyone.”</p>
+          </div>
+        </div>
+        <p class="copyright">© <span id="copyrightYear">----</span> MHitMaN. <span data-i18n="copyright.note">با ذکر منبع آزادانه استفاده کنید.</span></p>
+        <div class="about-links">
+          <a href="https://github.com/MHitMaN" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/mgh71/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:ghasemi71ir@gmail.com">Email</a>
+        </div>
+        <div class="donate">
+          <h3 data-i18n="donate.title">حمایت مالی</h3>
+          <p data-i18n="donate.text">اگر این افزونه به کارت آمد، با TRX یا BTC از توسعه نسخه‌های بهتر حمایت کن.</p>
+          <code><span data-i18n="donate.trx">کیف پول TRX</span>: TXXW1bMV2pSeiq72hvcokCATdHjJPpAKWC</code>
+          <code><span data-i18n="donate.btc">کیف پول BTC</span>: bc1q6vv6f9euvv8jfw3ftv88jrp7rrflejc98uacer</code>
+        </div>
+      </section>
+
+      <footer class="actions">
+        <button type="submit" data-i18n="saveSettings">ذخیره تنظیمات</button>
+        <button type="button" class="secondary" id="resetSettings" data-i18n="reset">بازنشانی</button>
+        <span id="statusText" role="status"></span>
+      </footer>
+    </form>
+  </main>
+  <script src="../shared/i18n.js"></script>
+  <script src="../shared/system-fonts.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

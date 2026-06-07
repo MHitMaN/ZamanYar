@@ -1,0 +1,143 @@
+name: Build Browser Extensions
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Validate manifest
+        run: node -e "JSON.parse(require('fs').readFileSync('manifest.json','utf8')); console.log('manifest ok')"
+
+      - name: JavaScript syntax check
+        run: |
+          node --check src/background/background.js
+          node --check src/content/jalaali.js
+          node --check src/content/content.js
+          node --check src/options/options.js
+          node --check src/popup/popup.js
+          node --check src/shared/i18n.js
+          node --check docs/demo.js
+
+      - name: Validate language files
+        run: |
+          node -e "const fs=require('fs'); for (const f of ['Languages/fa.json','Languages/ur.json','Languages/ar.json','Languages/en.json']) JSON.parse(fs.readFileSync(f,'utf8')); console.log('languages ok')"
+
+      - name: Prepare extension source
+        run: |
+          rm -rf dist
+          mkdir -p dist/source
+          cp manifest.json LICENSE dist/source/
+          cp -R src assets Languages dist/source/
+
+      - name: Firefox lint
+        run: npx web-ext lint --source-dir dist/source
+
+      - name: Build Firefox package
+        run: |
+          npx web-ext build --source-dir dist/source --artifacts-dir dist/firefox --overwrite-dest
+          cp dist/firefox/*.zip dist/firefox/zamanyar-firefox.zip
+
+      - name: Build Chrome package
+        run: |
+          mkdir -p dist/chrome
+          cd dist/source
+          zip -r ../chrome/zamanyar-chrome.zip .
+
+      - name: Build Edge package
+        run: |
+          mkdir -p dist/edge
+          cp dist/chrome/zamanyar-chrome.zip dist/edge/zamanyar-edge.zip
+
+      - name: Build Brave package
+        run: |
+          mkdir -p dist/brave
+          cp dist/chrome/zamanyar-chrome.zip dist/brave/zamanyar-brave.zip
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-extension-builds
+          path: dist/**
+
+      - name: Attach browser builds to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/chrome/zamanyar-chrome.zip
+            dist/firefox/zamanyar-firefox.zip
+            dist/edge/zamanyar-edge.zip
+            dist/brave/zamanyar-brave.zip
+
+  safari:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare extension source
+        run: |
+          rm -rf dist
+          mkdir -p dist/source
+          cp manifest.json LICENSE dist/source/
+          cp -R src assets Languages dist/source/
+
+      - name: Build Safari source package
+        run: |
+          mkdir -p dist/safari
+          cd dist/source
+          zip -r ../safari/zamanyar-safari-source.zip .
+
+      - name: Convert to Safari Xcode project
+        run: |
+          xcrun safari-web-extension-converter dist/source \
+            --project-location dist/safari \
+            --app-name "ZamanYar" \
+            --bundle-identifier "com.mhitman.zamanyar" \
+            --macos-only \
+            --no-open \
+            --no-prompt \
+            --force
+
+      - name: Upload Safari artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: safari-extension-build
+          path: dist/safari/**
+
+      - name: Attach Safari build to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/safari/zamanyar-safari-source.zip
