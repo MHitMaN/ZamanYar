@@ -23,9 +23,6 @@ on:
 permissions:
   contents: write
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -103,16 +100,6 @@ jobs:
           mkdir -p dist/brave
           cp dist/chrome/zamanyar-chrome.zip dist/brave/zamanyar-brave.zip
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v5
-        with:
-          name: browser-extension-builds
-          path: |
-            dist/chrome/zamanyar-chrome.zip
-            dist/firefox/zamanyar-firefox.zip
-            dist/edge/zamanyar-edge.zip
-            dist/brave/zamanyar-brave.zip
-
   safari:
     runs-on: macos-latest
 
@@ -144,14 +131,8 @@ jobs:
             --no-prompt \
             --force
 
-      - name: Upload Safari artifacts
-        uses: actions/upload-artifact@v5
-        with:
-          name: safari-extension-build
-          path: dist/safari/zamanyar-safari-source.zip
-
   release:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs:
       - build
       - safari
@@ -176,20 +157,86 @@ jobs:
             echo "RELEASE_TAG=v$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
           fi
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v5
-        with:
-          path: release-assets
-          merge-multiple: true
+      - name: Install dependencies
+        run: npm install
+
+      - name: Prepare extension source
+        run: |
+          rm -rf dist
+          mkdir -p dist/source
+          cp manifest.json LICENSE dist/source/
+          cp -R src assets Languages dist/source/
+
+      - name: Prepare Firefox source
+        run: |
+          cp -R dist/source dist/firefox-source
+          node - <<'NODE'
+          const fs = require('fs');
+          const manifestPath = 'dist/firefox-source/manifest.json';
+          const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+          manifest.background = {
+            scripts: [manifest.background.service_worker]
+          };
+          fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+          NODE
+
+      - name: Build Firefox package
+        run: |
+          npx web-ext build --source-dir dist/firefox-source --artifacts-dir dist/firefox --overwrite-dest
+          cp dist/firefox/*.zip dist/firefox/zamanyar-firefox.zip
+
+      - name: Build Chrome package
+        run: |
+          mkdir -p dist/chrome
+          cd dist/source
+          zip -r ../chrome/zamanyar-chrome.zip .
+
+      - name: Build Edge package
+        run: |
+          mkdir -p dist/edge
+          cp dist/chrome/zamanyar-chrome.zip dist/edge/zamanyar-edge.zip
+
+      - name: Build Brave package
+        run: |
+          mkdir -p dist/brave
+          cp dist/chrome/zamanyar-chrome.zip dist/brave/zamanyar-brave.zip
+
+      - name: Build Safari source package
+        run: |
+          mkdir -p dist/safari
+          cd dist/source
+          zip -r ../safari/zamanyar-safari-source.zip .
+
+      - name: Convert to Safari Xcode project
+        run: |
+          xcrun safari-web-extension-converter dist/source \
+            --project-location dist/safari \
+            --app-name "ZamanYar" \
+            --bundle-identifier "com.mhitman.zamanyar" \
+            --macos-only \
+            --no-open \
+            --no-prompt \
+            --force
 
       - name: List release assets
-        run: find release-assets -type f -name '*.zip' -print
+        run: find dist -type f -name '*.zip' -print
 
       - name: Attach builds to GitHub Release
-        uses: softprops/action-gh-release@v2.5.0
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          target_commitish: ${{ github.sha }}
-          generate_release_notes: true
-          fail_on_unmatched_files: true
-          files: release-assets/**/*.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          files=(
+            dist/chrome/zamanyar-chrome.zip
+            dist/firefox/zamanyar-firefox.zip
+            dist/edge/zamanyar-edge.zip
+            dist/brave/zamanyar-brave.zip
+            dist/safari/zamanyar-safari-source.zip
+          )
+
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "${files[@]}" --clobber
+          else
+            gh release create "$RELEASE_TAG" "${files[@]}" \
+              --target "$GITHUB_SHA" \
+              --generate-notes
+          fi
