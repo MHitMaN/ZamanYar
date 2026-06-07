@@ -1,3 +1,5 @@
+<div dir="rtl" align="right">
+
 # ZamanYar
 
 Version: `1.0.0`
@@ -35,10 +37,15 @@ Custom font استعمال کرنے کے لیے مطلوبہ font کو اپنے 
 اگر browser system fonts list کرنے کا API نہ دے تو صرف generic options جیسے `System UI`، `serif`، `sans-serif` اور `monospace` دکھائے جائیں گے۔
 
 ## Build
+
+</div>
+
 ```bash
 npm install
 npm run build
 ```
+
+<div dir="rtl" align="right">
 
 ## Safari
 Safari Web Extension کو Safari/Xcode app میں convert اور official release کے لیے App Store کے ذریعے sign کرنا پڑتا ہے۔
@@ -51,10 +58,16 @@ Safari Web Extension کو Safari/Xcode app میں convert اور official releas
 ## Donate
 اگر یہ project آپ کا وقت بچاتا ہے تو TRX یا BTC کے ذریعے future releases کو support کریں۔
 
+</div>
+
 ```text
 TRX wallet: TXXW1bMV2pSeiq72hvcokCATdHjJPpAKWC
 BTC wallet: bc1q6vv6f9euvv8jfw3ftv88jrp7rrflejc98uacer
 ```
 
+<div dir="rtl" align="right">
+
 ## License
 MIT License ہے، مگر copied یا derived versions میں copyright notice، اصل source attribution اور author links برقرار رکھنا ضروری ہے۔
+
+</div>

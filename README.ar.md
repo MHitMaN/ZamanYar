@@ -1,3 +1,5 @@
+<div dir="rtl" align="right">
+
 # ZamanYar
 
 الإصدار: `1.0.0`
@@ -43,10 +45,15 @@ https://mhitman.github.io/ZamanYar/
 إذا لم يوفر المتصفح API لقراءة قائمة خطوط النظام، ستظهر فقط خيارات عامة مثل `System UI` و`serif` و`sans-serif` و`monospace`.
 
 ## Build
+
+</div>
+
 ```bash
 npm install
 npm run build
 ```
+
+<div dir="rtl" align="right">
 
 ## Safari
 تحتاج Safari Web Extension إلى التحويل إلى تطبيق Safari/Xcode ثم التوقيع والنشر عبر App Store.
@@ -59,10 +66,16 @@ npm run build
 ## Donate
 إذا وفر لك المشروع وقتا، يمكنك دعم الإصدارات القادمة عبر TRX أو BTC.
 
+</div>
+
 ```text
 TRX wallet: TXXW1bMV2pSeiq72hvcokCATdHjJPpAKWC
 BTC wallet: bc1q6vv6f9euvv8jfw3ftv88jrp7rrflejc98uacer
 ```
 
+<div dir="rtl" align="right">
+
 ## License
 MIT License مع وجوب الحفاظ على حقوق النشر ونسبة المصدر وروابط الكاتب في النسخ المشتقة أو المنسوخة.
+
+</div>

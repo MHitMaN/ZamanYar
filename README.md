@@ -1,3 +1,5 @@
+<div dir="rtl" align="right">
+
 # ZamanYar
 
 نسخه: `1.0.0`
@@ -40,6 +42,9 @@ ZamanYar یک افزونه مرورگر برای Chrome، Edge، Firefox، Brave
 - پشتیبانی از localhost و فایل‌های تست توسعه.
 
 ## ساختار پروژه
+
+</div>
+
 ```text
 .
 ├── assets/
@@ -65,6 +70,8 @@ ZamanYar یک افزونه مرورگر برای Chrome، Edge، Firefox، Brave
 └── package.json
 ```
 
+<div dir="rtl" align="right">
+
 ## دمو
 دموی آنلاین از این لینک در دسترس است:
 
@@ -76,10 +83,15 @@ https://mhitman.github.io/ZamanYar/
 در مرورگرهایی که API لیست فونت سیستم را ارائه نکنند، فقط گزینه‌های عمومی سیستم مثل `System UI`، `serif`، `sans-serif` و `monospace` نمایش داده می‌شود.
 
 ## ساخت خروجی
+
+</div>
+
 ```bash
 npm install
 npm run build
 ```
+
+<div dir="rtl" align="right">
 
 GitHub Actions برای Firefox، Chrome، Edge، Brave و Safari خروجی می‌سازد و روی push به `main`، `master`، `develop`، tagها، pull request و اجرای دستی فعال است.
 
@@ -119,12 +131,18 @@ Reference: https://en.wikipedia.org/wiki/Islamic_calendar
 ## حمایت مالی
 اگر این افزونه به کارت آمد، با TRX یا BTC از توسعه نسخه‌های بهتر حمایت کن.
 
+</div>
+
 ```text
 TRX wallet: TXXW1bMV2pSeiq72hvcokCATdHjJPpAKWC
 BTC wallet: bc1q6vv6f9euvv8jfw3ftv88jrp7rrflejc98uacer
 ```
 
+<div dir="rtl" align="right">
+
 ## مجوز
 مجوز MIT است، با الزام حفظ کپی‌رایت، ذکر منبع اصلی و لینک‌های نویسنده در نسخه‌های کپی‌شده یا مشتق‌شده.
+
+</div>
 
 Copyright (c) 2026 MHitMaN
