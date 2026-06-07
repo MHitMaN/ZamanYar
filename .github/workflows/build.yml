@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: 'Release tag to create or update, for example v1.0.0. Leave empty to only build artifacts.'
+        description: 'Release tag to create or update, for example v1.0.0. Leave empty to use package.json version.'
         required: false
         type: string
 
@@ -152,15 +152,20 @@ jobs:
     needs:
       - build
       - safari
-    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.release_tag != '')
+    if: github.event_name != 'pull_request' && (startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Resolve release tag
         run: |
           if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
             echo "RELEASE_TAG=${GITHUB_REF_NAME}" >> "$GITHUB_ENV"
-          else
+          elif [[ -n "${{ github.event.inputs.release_tag }}" ]]; then
             echo "RELEASE_TAG=${{ github.event.inputs.release_tag }}" >> "$GITHUB_ENV"
+          else
+            echo "RELEASE_TAG=v$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
           fi
 
       - name: Download build artifacts
