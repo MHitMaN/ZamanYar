@@ -4,6 +4,12 @@
   "version": "1.0.0",
   "incognito": "spanning",
   "description": "Smart browser extension for localized calendars, dates, times, numbers, fonts, and per-site layout controls",
+  "icons": {
+    "16": "assets/images/icons/icon-16.png",
+    "32": "assets/images/icons/icon-32.png",
+    "48": "assets/images/icons/icon-48.png",
+    "128": "assets/images/icons/icon-128.png"
+  },
   "permissions": ["storage", "scripting", "activeTab", "tabs"],
   "host_permissions": ["<all_urls>"],
   "background": {
@@ -25,6 +31,12 @@
     }
   ],
   "action": {
+    "default_icon": {
+      "16": "assets/images/icons/icon-16.png",
+      "32": "assets/images/icons/icon-32.png",
+      "48": "assets/images/icons/icon-48.png",
+      "128": "assets/images/icons/icon-128.png"
+    },
     "default_popup": "src/popup/popup.html"
   },
   "options_ui": {

@@ -1,12 +1,27 @@
-# ZamanYar
+<p align="center">
+  <a href="README.en.md">English</a> |
+  <a href="README.md">فارسی</a> |
+  <a href="README.ar.md">العربية</a> |
+  <a href="README.ur.md">اردو</a>
+</p>
+
+<p align="center">
+  <img src="assets/images/zamanyar-logo.png" alt="ZamanYar logo" width="220">
+</p>
+
+<h1 align="center">ZamanYar</h1>
+
+<p align="center">
+  <img alt="release" src="https://img.shields.io/github/v/release/MHitMaN/ZamanYar?label=release&style=flat-square">
+  <img alt="build" src="https://img.shields.io/github/actions/workflow/status/MHitMaN/ZamanYar/build.yml?branch=main&label=build&style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-1.0.0-00a3ff?style=flat-square">
+  <img alt="license" src="https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square">
+  <img alt="browsers" src="https://img.shields.io/badge/browsers-Chrome%20%7C%20Firefox%20%7C%20Edge%20%7C%20Brave%20%7C%20Safari-0ea5e9?style=flat-square">
+  <img alt="i18n" src="https://img.shields.io/badge/i18n-FA%20%7C%20UR%20%7C%20AR%20%7C%20EN-f59e0b?style=flat-square">
+  <a href="https://mhitman.github.io/ZamanYar/"><img alt="demo" src="https://img.shields.io/badge/demo-online-14b8a6?style=flat-square"></a>
+</p>
 
 Version: `1.0.0`
-
-Languages:
-
-- [فارسی](README.md)
-- [اردو](README.ur.md)
-- [العربية](README.ar.md)
 
 ## Overview
 ZamanYar is a browser extension for Chrome, Edge, Firefox, Brave, and Safari. It converts Gregorian dates on web pages to Jalali/Shamsi or Lunar Hijri dates and supports per-site controls for numbers, fonts, RTL/LTR direction, text alignment, date format, and time format.
