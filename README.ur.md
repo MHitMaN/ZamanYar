@@ -11,7 +11,7 @@ Version: `1.0.0`
 ## تعارف
 ZamanYar Chrome، Edge، Firefox، Brave اور Safari کے لیے browser extension ہے۔ یہ ویب صفحات میں Gregorian dates کو Jalali/Shamsi یا Lunar Hijri dates میں تبدیل کرتا ہے، اور ہر site کے لیے numbers، fonts، RTL/LTR direction، text alignment، date format اور time format کی الگ settings دیتا ہے۔
 
-> "تقویمیں بدلتی ہیں؛ وقت سب کے لیے پڑھنے کے قابل رہنا چاہیے۔"
+> "تقویمیں مختلف ہیں؛ وقت سب کے لیے پڑھنے کے قابل رہنا چاہیے۔"
 >
 > MHitMaN
 
@@ -25,7 +25,9 @@ ZamanYar Chrome، Edge، Firefox، Brave اور Safari کے لیے browser exten
 - SPA/AJAX اور delayed content support۔
 
 ## Demo
-Demo page `docs/` folder میں ہے۔ GitHub Pages کے لیے repository settings میں `docs` folder سے publishing enable کریں۔
+آن لائن demo اس لنک پر دستیاب ہے:
+
+https://mhitman.github.io/ZamanYar/
 
 ## Fonts
 Custom font استعمال کرنے کے لیے مطلوبہ font کو اپنے operating system میں install کریں۔ پھر extension کی font setting میں "Load system fonts" منتخب کریں تاکہ installed fonts selection list میں دکھائی دیں۔

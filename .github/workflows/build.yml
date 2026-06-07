@@ -14,6 +14,11 @@ on:
       - master
       - develop
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag to create or update, for example v1.0.0. Leave empty to only build artifacts.'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -102,9 +107,10 @@ jobs:
           path: dist/**
 
       - name: Attach browser builds to GitHub Release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.release_tag != '')
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.event.inputs.release_tag || github.ref_name }}
           files: |
             dist/chrome/zamanyar-chrome.zip
             dist/firefox/zamanyar-firefox.zip
@@ -149,8 +155,9 @@ jobs:
           path: dist/safari/**
 
       - name: Attach Safari build to GitHub Release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.release_tag != '')
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.event.inputs.release_tag || github.ref_name }}
           files: |
             dist/safari/zamanyar-safari-source.zip
