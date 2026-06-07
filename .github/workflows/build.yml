@@ -58,12 +58,25 @@ jobs:
           cp manifest.json LICENSE dist/source/
           cp -R src assets Languages dist/source/
 
+      - name: Prepare Firefox source
+        run: |
+          cp -R dist/source dist/firefox-source
+          node - <<'NODE'
+          const fs = require('fs');
+          const manifestPath = 'dist/firefox-source/manifest.json';
+          const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+          manifest.background = {
+            scripts: [manifest.background.service_worker]
+          };
+          fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+          NODE
+
       - name: Firefox lint
-        run: npx web-ext lint --source-dir dist/source
+        run: npx web-ext lint --source-dir dist/firefox-source
 
       - name: Build Firefox package
         run: |
-          npx web-ext build --source-dir dist/source --artifacts-dir dist/firefox --overwrite-dest
+          npx web-ext build --source-dir dist/firefox-source --artifacts-dir dist/firefox --overwrite-dest
           cp dist/firefox/*.zip dist/firefox/zamanyar-firefox.zip
 
       - name: Build Chrome package

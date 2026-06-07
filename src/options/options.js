@@ -504,15 +504,24 @@ function updateDemo() {
   liveDemo.style.fontSize = values.fontSize || '';
   liveDemo.style.direction = values.directionMode === 'inherit' ? 'rtl' : values.directionMode;
   liveDemo.style.textAlign = values.textAlignMode === 'inherit' ? 'right' : values.textAlignMode;
-  liveDemo.innerHTML = `
-    <p class="demo-title">${renderNumber(`${sampleWeekday}، ${date} ${time}`)}</p>
-    <p>${tr('demo.isoLabel', 'ISO')}: ${renderNumber(`${date}T${isoTime}+02:00`)}</p>
-    <p>${tr('demo.numericLabel', 'Numeric')}: ${renderNumber(`${date} ${time}`)}</p>
-    <p>${tr('demo.textLabel', 'Text')}: ${renderNumber(textDate)}</p>
-    <p>${tr('relative.previewLabel', 'Relative time')}: ${renderNumber(relativeTime)}</p>
-    <p>${tr('demo.fontSample', 'Font sample')}: ZamanYar</p>
-    <p>${tr('demo.persianSample', 'نمونه فارسی')}: ${renderNumber(persianSample)}</p>
-  `;
+  liveDemo.textContent = '';
+
+  const appendLine = (text, className = '') => {
+    const line = document.createElement('p');
+    if (className) {
+      line.className = className;
+    }
+    line.textContent = text;
+    liveDemo.append(line);
+  };
+
+  appendLine(renderNumber(`${sampleWeekday}، ${date} ${time}`), 'demo-title');
+  appendLine(`${tr('demo.isoLabel', 'ISO')}: ${renderNumber(`${date}T${isoTime}+02:00`)}`);
+  appendLine(`${tr('demo.numericLabel', 'Numeric')}: ${renderNumber(`${date} ${time}`)}`);
+  appendLine(`${tr('demo.textLabel', 'Text')}: ${renderNumber(textDate)}`);
+  appendLine(`${tr('relative.previewLabel', 'Relative time')}: ${renderNumber(relativeTime)}`);
+  appendLine(`${tr('demo.fontSample', 'Font sample')}: ZamanYar`);
+  appendLine(`${tr('demo.persianSample', 'نمونه فارسی')}: ${renderNumber(persianSample)}`);
 }
 
 form.addEventListener('input', updateDemo);
